@@ -2,6 +2,7 @@ package ru.romanov.schedule.adapters;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
@@ -150,10 +151,12 @@ public class ScheduleCheckListAdapter extends BaseAdapter {
 		return view;
 	}
 	
-	public String getCheckRequestBodyString() {
-		
-		return null;
-		
+	public HashMap<String, String> getCheckedElemetsStatus() {
+		HashMap<String, String> idMap = new HashMap<String, String>(this.checkMap.size());
+		for (MySubject sbj : this.checkMap.keySet()) {
+			idMap.put(sbj.getId(),checkMap.get(sbj));
+		}
+		return idMap;
 	}
 
 }
