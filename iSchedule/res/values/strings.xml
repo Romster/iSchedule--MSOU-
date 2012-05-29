@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Расписание МГОУ</string>
+    <string name="login_error">Ошибка входа. Проверьте правильность логина и пароля и повторите попытку</string>
+    <string name="loading">Загрузка</string>
+    <string name="auth_success">Авторизация пройдена</string>
+    <string name="last_update">Последняя синхронизация:</string>
+    <string name="subject">Предмет:</string>
+    <string name="date">Дата:</string>
+    <string name="time">Время:</string>
+    <string name="place">Аудитория:</string>
+    <string name="group">Группа:</string>
+    <string name="my_info">Информация</string>
+    <string name="check_updates">Изменения</string>
+    <string name="download">Загрузить</string>
+    <string name="settings">Настройки</string>
+    <string name="get_token">Получить токен</string>
+    <string name="exit">Выход</string>
+    <string name="check">Проверка</string>
+    <string name="new_changes">Изменения:</string>
+    <string name="last_change">Последнее изменение:</string>
+    <string name="sure_to_exit">Вы уверены, что хотите выйти? Все данные будут удалены.</string>
+    <string name="present">ЕСТЬ</string>
+    <string name="apsent">НЕТ</string>
+    <string name="dialog_yes">Да</string>
+    <string name="dialog_no">Нет</string>
+    <string name="name">Имя:</string>
+    <string name="phone">Телефон:</string>
+    <string name="email">email:</string>
+    <string name="curr_profile_info">Информация о текущем профиле:</string>
+
+    <string-array name="days_of_week">
+        <item>Воскресенье</item>
+        <item>Понедельник</item>
+        <item>Вторник</item>
+        <item>Среда</item>
+        <item>Четверг</item>
+        <item>Пятница</item>
+        <item>Суббота</item>
+    </string-array>
+
+    <string name="close">Закрыть</string>
+    <string name="schedule">Расписание</string>
+    <string name="updates">Обновления</string>
+    <string name="confirm">Подтвердить получение</string>
+    <string name="agree">Принять</string>
+    <string name="disagree">Отказаться</string>
+    <string name="send">Отправить подтвержение</string>
+    <string name="no_updates">Нет измений</string>
+    <string name="start">Начало:</string>
+    <string name="end">Конец:</string>
+    <string name="day_of_week">День недели:</string>
+    <string name="exclude">Кроме:</string>
+    <string name="enter">Вход</string>
+    <string name="autorising">Авторизация</string>
+    <string name="login">Логин:</string>
+    <string name="password">Пароль:</string>
+
+</resources>

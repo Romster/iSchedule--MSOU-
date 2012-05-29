@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <item
+        android:id="@+id/menu_check"
+        android:title="@string/check_updates"/>
+    <item
+        android:id="@+id/menu_info"
+        android:title="@string/my_info"/>
+    <item
+        android:id="@+id/menu_download"
+        android:title="@string/download"/>
+    <item android:title="@string/settings">
+        <menu>
+            <item
+                android:id="@+id/menu_token"
+                android:title="@string/get_token"/>
+            <item
+                android:id="@+id/menu_exit"
+                android:title="@string/exit"/>
+        </menu>
+    </item>
+
+</menu>
