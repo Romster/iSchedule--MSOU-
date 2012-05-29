@@ -32,10 +32,10 @@ public final class R {
         public static final int check_start_date_tv=0x7f070002;
         public static final int check_subject_tv=0x7f070000;
         public static final int check_time_tv=0x7f070009;
-        public static final int info_email=0x7f070014;
-        public static final int info_exit_but=0x7f070015;
-        public static final int info_name=0x7f070012;
-        public static final int info_phone=0x7f070013;
+        public static final int info_email=0x7f070013;
+        public static final int info_exit_but=0x7f070014;
+        public static final int info_name=0x7f070011;
+        public static final int info_phone=0x7f070012;
         public static final int logInButton=0x7f07001a;
         public static final int loginEText=0x7f070017;
         public static final int maintab_last_sync=0x7f07001b;
@@ -55,7 +55,7 @@ public final class R {
         public static final int schedule_list_item_date=0x7f070021;
         public static final int schedule_list_item_layout=0x7f070023;
         public static final int schedule_lsit_item_dow=0x7f070022;
-        public static final int textView1=0x7f070011;
+        public static final int textView1=0x7f070015;
         public static final int textView2=0x7f070016;
         public static final int textView3=0x7f070018;
         public static final int update_check=0x7f070026;
@@ -67,14 +67,13 @@ public final class R {
     public static final class layout {
         public static final int check_item=0x7f030000;
         public static final int check_list_activity_layout=0x7f030001;
-        public static final int entering_layout=0x7f030002;
-        public static final int info_dialog_layout=0x7f030003;
-        public static final int list_activity_layout=0x7f030004;
-        public static final int main=0x7f030005;
-        public static final int main_tab_layout=0x7f030006;
-        public static final int schedule_item_element=0x7f030007;
-        public static final int schedule_list_item=0x7f030008;
-        public static final int update_dialog_background=0x7f030009;
+        public static final int info_dialog_layout=0x7f030002;
+        public static final int list_activity_layout=0x7f030003;
+        public static final int main=0x7f030004;
+        public static final int main_tab_layout=0x7f030005;
+        public static final int schedule_item_element=0x7f030006;
+        public static final int schedule_list_item=0x7f030007;
+        public static final int update_dialog_background=0x7f030008;
     }
     public static final class menu {
         public static final int main_menu=0x7f060000;
