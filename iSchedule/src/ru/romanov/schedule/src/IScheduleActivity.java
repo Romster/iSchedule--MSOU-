@@ -194,7 +194,7 @@ public class IScheduleActivity extends Activity {
 			editor.putString(StringConstants.SHARED_PASS, this.pass);
 			editor.putString(StringConstants.TOKEN, this.token);
 			editor.putString(StringConstants.SHARED_NAME, this.name);
-			editor.putString(StringConstants.SHAED_PHONE, this.phone);
+			editor.putString(StringConstants.SHARED_PHONE, this.phone);
 			editor.putString(StringConstants.SHARED_EMAIL, this.email);
 			editor.commit();
 		}

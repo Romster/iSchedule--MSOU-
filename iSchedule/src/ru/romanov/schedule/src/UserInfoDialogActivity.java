@@ -32,7 +32,7 @@ public class UserInfoDialogActivity extends Activity implements OnClickListener{
 		SharedPreferences sp = getSharedPreferences(StringConstants.SCHEDULE_SHARED_PREFERENCES, MODE_PRIVATE);
 		this.emailTV.setText(sp.getString(StringConstants.SHARED_EMAIL, "-"));
 		this.nameTV.setText(sp.getString(StringConstants.SHARED_NAME, "-"));
-		this.phoneTV.setText(sp.getString(StringConstants.SHAED_PHONE, "-"));
+		this.phoneTV.setText(sp.getString(StringConstants.SHARED_PHONE, "-"));
 		this.exitBT.setOnClickListener(this);
 		super.onStart();
 	}
