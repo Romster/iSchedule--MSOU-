@@ -71,41 +71,56 @@ public abstract class XMLParser {
 	 * @throws SAXException
 	 * @throws IOException
 	 */
+	public static Document createDocument() throws ParserConfigurationException {
+		DocumentBuilder builder = getBuilder();
+		return builder.newDocument();
+	}
+	
+	public static DocumentBuilder getBuilder() throws ParserConfigurationException {
+		DocumentBuilderFactory factory = DocumentBuilderFactory
+				.newInstance();
+		return factory.newDocumentBuilder();
+	}
+	
+	public static Document domFromString(String XMLString) throws ParserConfigurationException, SAXException, IOException {
+		DocumentBuilder builder = getBuilder();
+		InputStream str_stream = null;
+		Document dom = null;
+		str_stream = new ByteArrayInputStream(XMLString.getBytes("UTF-8"));
+		try {
+			dom = builder.parse(str_stream);
+		} catch (IOException e) {
+			throw e;
+		} catch (SAXException e) {
+			throw e;
+		} finally {
+			if (str_stream != null)
+				str_stream.close();
+		}
+		return dom;
+	}
+	
 	public static Map<String, String> parseAuthResponse(String XMLResponse)
 			throws ParserConfigurationException, SAXException, IOException {
 		HashMap<String, String> resultMap = new HashMap<String, String>();
-		InputStream is = null;
-		try {
-			is = new ByteArrayInputStream(XMLResponse.getBytes("UTF-8"));
-			DocumentBuilderFactory factory = DocumentBuilderFactory
-					.newInstance();
-			DocumentBuilder builder = factory.newDocumentBuilder();
-			Document dom = builder.parse(is);
-			NodeList domNodes = dom.getChildNodes();
-			Node response = domNodes.item(0);
-			NodeList responceNodes = response.getChildNodes();
-			String status = responceNodes.item(0).getFirstChild()
+		Document dom =domFromString(XMLResponse);
+		NodeList domNodes = dom.getChildNodes();
+		Node response = domNodes.item(0);
+		NodeList responceNodes = response.getChildNodes();
+		String status = responceNodes.item(0).getFirstChild()
+				.getNodeValue();
+		resultMap.put(STATUS, status);
+		if(status.equals(OK)){
+			String token = responceNodes.item(1).getFirstChild()
 					.getNodeValue();
-			resultMap.put(STATUS, status);
-			if(status.equals(OK)){
-				String token = responceNodes.item(1).getFirstChild()
-						.getNodeValue();
-				resultMap.put(TOKEN, token);
-				
-				//Получим информацию о пользователе. Остальноe, пока, - не важно.
-				NodeList userInfoList = responceNodes.item(2).getChildNodes().item(1).getChildNodes();
-				resultMap.put(NAME, userInfoList.item(1).getFirstChild().getNodeValue());
-				resultMap.put(EMAIL, userInfoList.item(3).getFirstChild().getNodeValue());
-				resultMap.put(PHONE, userInfoList.item(4).getFirstChild().getNodeValue());
-			}
-
-		} catch (IOException e) {
-			throw (e);
-		} finally {
-			if (is != null)
-				is.close();
+			resultMap.put(TOKEN, token);
+			
+			//Получим информацию о пользователе. Остальноe, пока, - не важно.
+			NodeList userInfoList = responceNodes.item(2).getChildNodes().item(1).getChildNodes();
+			resultMap.put(NAME, userInfoList.item(1).getFirstChild().getNodeValue());
+			resultMap.put(EMAIL, userInfoList.item(3).getFirstChild().getNodeValue());
+			resultMap.put(PHONE, userInfoList.item(4).getFirstChild().getNodeValue());
 		}
-
 		return resultMap;
 	}
 
@@ -122,13 +137,8 @@ public abstract class XMLParser {
 			String XMLResponse) throws IOException,
 			ParserConfigurationException, SAXException {
 		HashMap<String, String> map = new HashMap<String, String>();
-		InputStream is = null;
 		try {
-			is = new ByteArrayInputStream(XMLResponse.getBytes("UTF-8"));
-			DocumentBuilderFactory factory = DocumentBuilderFactory
-					.newInstance();
-			DocumentBuilder builder = factory.newDocumentBuilder();
-			Document dom = builder.parse(is);
+			Document dom =domFromString(XMLResponse);
 			NodeList domNodes = dom.getChildNodes();
 			Node response = domNodes.item(0);
 			NodeList responseNodes = response.getChildNodes();
@@ -151,10 +161,7 @@ public abstract class XMLParser {
 		} catch (SAXException e) {
 			e.printStackTrace();
 			throw e;
-		} finally {
-			if (is != null)
-				is.close();
-		}
+		} 
 
 		return map;
 	}
@@ -173,13 +180,8 @@ public abstract class XMLParser {
 			String XMLResponse) throws IOException,
 			ParserConfigurationException, SAXException, ParseException {
 		MySubjectUpdateManager manager = null;
-		InputStream is = null;
 		try {
-			is = new ByteArrayInputStream(XMLResponse.getBytes("UTF-8"));
-			DocumentBuilderFactory factory = DocumentBuilderFactory
-					.newInstance();
-			DocumentBuilder builder = factory.newDocumentBuilder();
-			Document dom = builder.parse(is);
+			Document dom =domFromString(XMLResponse);
 			NodeList domNodes = dom.getChildNodes();
 			Node response = domNodes.item(0);
 			NodeList responseNodes = response.getChildNodes();
@@ -203,9 +205,6 @@ public abstract class XMLParser {
 			throw e;
 		} catch (ParseException e) {
 			throw e;
-		} finally {
-			if (is != null)
-				is.close();
 		}
 		return manager;
 	}
